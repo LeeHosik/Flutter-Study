@@ -13,7 +13,12 @@ class nullPage extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: () => '/',
+          onPressed: () {
+            Navigator.pushNamed(
+              context,
+              '/',
+            );
+          },
           child: const Text('Home'),
         ),
       ),
