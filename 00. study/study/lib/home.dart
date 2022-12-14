@@ -135,6 +135,23 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/Basic3day0',
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(200, 30),
+                  ),
+                  child: const Text(
+                    '03 Day',
+                  ),
+                ),
+              ),
             ],
           ),
         ),

@@ -7,6 +7,13 @@ import 'package:study/02_pages/basic2day1.dart';
 import 'package:study/home.dart';
 import 'package:study/nullPage.dart';
 
+import '03_pages/basic3day0.dart';
+import '03_pages/basic3day1.dart';
+import '03_pages/basic3day2.dart';
+import '03_pages/basic3day3.dart';
+import '03_pages/basic3day4.dart';
+import '03_pages/basic3day5.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -33,7 +40,16 @@ class MyApp extends StatelessWidget {
         '/Basic2day0': (context) => const Basic2day0(),
         '/Basic2day0_button': (context) => const Basic2day0_button(),
         // 3day
-        '/Basic3day0': (context) => const nullPage(),
+        '/Basic3day0': (context) => const Basic3day0(),
+        '/Basic3day1_AlertNDialog': (context) =>
+            const Basic3day1_AlertNDialog(),
+        '/basic3Day2StateFul': (context) => const basic3Day2StateFul(),
+        '/basic3Day3FloatingButton': (context) =>
+            const basic3Day3FloatingButton(),
+        '/basic3Day4Calculation': (context) => const basic3Day4Calculation(),
+
+        '/basic3Day4CalcFinal': (context) => const basic3Day4CalcFinal(),
+
         // 4day
         '/Basic4day0': (context) => const nullPage(),
         // 5day
