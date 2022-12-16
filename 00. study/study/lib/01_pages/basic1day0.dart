@@ -8,7 +8,7 @@ class Basic1day0 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Basic Start',
+          '1 Day',
         ),
       ),
       body: SingleChildScrollView(
