@@ -4,6 +4,7 @@ import 'package:study/01_pages/basic1day1.dart';
 
 import 'package:study/02_pages/basic2day0.dart';
 import 'package:study/02_pages/basic2day1.dart';
+import 'package:study/05_pages/basic5day0.dart';
 import 'package:study/home.dart';
 import 'package:study/nullPage.dart';
 
@@ -14,11 +15,15 @@ import '03_pages/basic3day3.dart';
 import '03_pages/basic3day4.dart';
 import '03_pages/basic3day5.dart';
 import '04_pages/Basic4day4_swipeImage.dart';
+import '04_pages/Basic4day5_TimerText.dart';
 import '04_pages/basic4day0.dart';
 import '04_pages/basic4day1.dart';
 import '04_pages/basic4day2.dart';
 
 import '04_pages/basic4day3_bmi_1.dart';
+import '05_pages/basic5day1_imagezoom.dart';
+import '05_pages/basic5day2_imageSwitch.dart';
+import '05_pages/basic5day3_imageSwitch3.dart';
 
 void main() {
   runApp(const MyApp());
@@ -65,9 +70,17 @@ class MyApp extends StatelessWidget {
             const Basic4day2_justIncreaseSlideBar(),
         '/calcBMI': (context) => const calcBMI(),
         '/Basic4day4_swipeImage': (context) => const Basic4day4_swipeImage(),
+        '/Basic4day5_TimerText': (context) => const Basic4day5_TimerText(),
 
         // 5day
-        '/Basic5day0': (context) => const nullPage(),
+        '/Basic5day0': (context) => const Basic5day0(),
+        '/Basic5day1_image_zoom_lamp': (context) =>
+            const Basic5day1_image_zoom_lamp(),
+        '/basic5day2_imageSwitch': (context) => const basic5day2_imageSwitch(),
+
+        '/basic5day3_imageSwitch3': (context) =>
+            const basic5day3_imageSwitch3(),
+
         // 6day
         '/Basic6day0': (context) => const nullPage(),
         // 7day

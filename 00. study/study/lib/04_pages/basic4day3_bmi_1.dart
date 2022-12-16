@@ -85,6 +85,7 @@ class _calcBMIState extends State<calcBMI> {
                   height: 40,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
                       width: 150,
@@ -135,22 +136,35 @@ class _calcBMIState extends State<calcBMI> {
                     onChanged: (double value) => _slideKg(value),
                   ),
                 ),
+                Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        result =
+                            _FnCalcBMI(int.parse(cm.text), int.parse(kg.text));
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => resultBMI(result),
+                          ),
+                        );
+                      },
+                      child: Row(
+                        children: const [
+                          Icon(Icons.next_plan),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            '클릭!',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ],
-            ),
-            ElevatedButton(
-              onPressed: () {
-                print('elevataedbutton clicked');
-                result = _FnCalcBMI(int.parse(cm.text), int.parse(kg.text));
-                print('result = $result');
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => resultBMI(result),
-                  ),
-                );
-                print('after navigator psuh');
-              },
-              child: const Icon(Icons.next_plan),
             ),
           ],
         ),

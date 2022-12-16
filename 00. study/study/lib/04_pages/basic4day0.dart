@@ -67,6 +67,18 @@ class Basic4day0 extends StatelessWidget {
                 },
                 child: const Text('4_swipeImage'),
               ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(230, 40),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/Basic4day5_TimerText',
+                  );
+                },
+                child: const Text('Basic4day5_TimerText'),
+              ),
             ],
           ),
         ),

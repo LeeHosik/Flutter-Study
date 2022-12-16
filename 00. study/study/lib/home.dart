@@ -354,6 +354,23 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/Basic5day0',
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(200, 30),
+                  ),
+                  child: const Text(
+                    '05 Day',
+                  ),
+                ),
+              ),
             ],
           ),
         ),
