@@ -47,7 +47,10 @@ class _calcBMIState extends State<calcBMI> {
                   height: 40,
                 ),
                 const Text(
-                  '성별을 입력해 주세요',
+                  '성별을 선택해 주세요',
+                ),
+                SizedBox(
+                  height: 15,
                 ),
                 Row(
                   children: [
