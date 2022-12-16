@@ -24,6 +24,9 @@ import '04_pages/basic4day3_bmi_1.dart';
 import '05_pages/basic5day1_imagezoom.dart';
 import '05_pages/basic5day2_imageSwitch.dart';
 import '05_pages/basic5day3_imageSwitch3.dart';
+import '05_pages/basic5day4_AlertDialog.dart';
+import '05_pages/basic5day5_tabBar.dart';
+import '05_pages/basic5day6_listView.dart';
 
 void main() {
   runApp(const MyApp());
@@ -80,6 +83,9 @@ class MyApp extends StatelessWidget {
 
         '/basic5day3_imageSwitch3': (context) =>
             const basic5day3_imageSwitch3(),
+        '/basic5day4_AlertDialog': (context) => const basic5day4_AlertDialog(),
+        '/basic5day5_tabBar': (context) => const basic5day5_tabBar(),
+        '/basic5day6_listView': (context) => const basic5day6_listView(),
 
         // 6day
         '/Basic6day0': (context) => const nullPage(),

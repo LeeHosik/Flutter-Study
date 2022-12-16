@@ -159,12 +159,15 @@ class _basic5day3_imageSwitch3State extends State<basic5day3_imageSwitch3> {
 
   imageColorChange() {
     setState(() {
-      if (imageColor == false) {
-        _lampImage = 'lamp_red.png';
-        imageColor = true;
+      if (imageOnOff == false) {
       } else {
-        _lampImage = 'lamp_on.png';
-        imageColor = false;
+        if (imageColor == false) {
+          _lampImage = 'lamp_red.png';
+          imageColor = true;
+        } else {
+          _lampImage = 'lamp_on.png';
+          imageColor = false;
+        }
       }
     });
   } //imageColorChange END

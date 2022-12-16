@@ -8,7 +8,7 @@ class Basic5day0 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          '4 Day',
+          '5 Day',
         ),
       ),
       body: SingleChildScrollView(
@@ -54,6 +54,42 @@ class Basic5day0 extends StatelessWidget {
                   );
                 },
                 child: const Text('3_imageSwitch3'),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(230, 40),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/basic5day4_AlertDialog',
+                  );
+                },
+                child: const Text('4_AlertDialog'),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(230, 40),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/basic5day5_tabBar',
+                  );
+                },
+                child: const Text('5_tabBar'),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(230, 40),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/basic5day6_listView',
+                  );
+                },
+                child: const Text('6_List View'),
               ),
             ],
           ),
