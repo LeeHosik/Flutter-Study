@@ -77,7 +77,7 @@ class Basic4day0 extends StatelessWidget {
                     '/Basic4day5_TimerText',
                   );
                 },
-                child: const Text('Basic4day5_TimerText'),
+                child: const Text('5_TimerText'),
               ),
             ],
           ),

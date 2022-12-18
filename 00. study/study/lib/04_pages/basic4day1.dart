@@ -230,47 +230,63 @@ class _HomeState extends State<Basic4day1_SwitchCalc> {
 
 // Switch
   _addSwitch(value) {
-    setState(() {
-      addbool = value;
-      if (addbool == false) {
-        add.text = "";
-      } else {
-        _calcAdd();
-      }
-    });
+    if (num1.text.trim().isEmpty || num2.text.trim().isEmpty) {
+      _errorSnackBar(context);
+    } else {
+      setState(() {
+        addbool = value;
+        if (addbool == false) {
+          add.text = "";
+        } else {
+          _calcAdd();
+        }
+      });
+    }
   }
 
   _subSwitch(value) {
-    setState(() {
-      subbool = value;
-      if (subbool == false) {
-        sub.text = "";
-      } else {
-        _calcSub();
-      }
-    });
+    if (num1.text.trim().isEmpty || num2.text.trim().isEmpty) {
+      _errorSnackBar(context);
+    } else {
+      setState(() {
+        subbool = value;
+        if (subbool == false) {
+          sub.text = "";
+        } else {
+          _calcSub();
+        }
+      });
+    }
   }
 
   _mulSwitch(value) {
-    setState(() {
-      mulbool = value;
-      if (mulbool == false) {
-        mul.text = "";
-      } else {
-        _calcMul();
-      }
-    });
+    if (num1.text.trim().isEmpty || num2.text.trim().isEmpty) {
+      _errorSnackBar(context);
+    } else {
+      setState(() {
+        mulbool = value;
+        if (mulbool == false) {
+          mul.text = "";
+        } else {
+          _calcMul();
+        }
+      });
+    }
   }
 
   _divSwitch(value) {
-    setState(() {
-      divbool = value;
-      if (divbool == false) {
-        div.text = "";
-      } else {
-        _calcDiv();
-      }
-    });
+    if (num1.text.trim().isEmpty || num2.text.trim().isEmpty) {
+      _errorSnackBar(context);
+    } else {
+      setState(() {
+        divbool = value;
+        if (divbool == false) {
+          div.text = "";
+        } else {
+          _calcDiv();
+        }
+      });
+    }
   } //_divswitch
 
 // 4칙연산

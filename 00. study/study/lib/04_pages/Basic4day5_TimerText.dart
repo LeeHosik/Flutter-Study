@@ -14,19 +14,28 @@ class _HomeState extends State<Basic4day5_TimerText> {
   late String str;
   late List strlist;
   late String viewStr;
-
+  late Timer _timer;
   void initState() {
     // TODO: implement initState
     super.initState();
     str = "Kitasan Black";
     strlist = str.split('');
     viewStr = "";
-    Timer.periodic(
+
+    _timer = Timer.periodic(
       const Duration(seconds: 1),
       (timer) {
         _roopChangeText();
       },
     );
+  }
+
+  @override
+  void dispose() {
+    /// tabbar 할때 이 종료 안해주면 쓰래기 엄청 쌓임
+    //_roopChangeText()?.dispose(); // <<<<<<<<
+    _timer?.cancel();
+    super.dispose();
   }
 
   @override

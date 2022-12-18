@@ -38,6 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   simple_gesture_detector: ^0.2.0
   syncfusion_flutter_gauges: ^20.3.61
+  # chips_choice: ^3.0.0 chips_choice select images 만들고 싶어서 찾아봐서 해봤던거 
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:

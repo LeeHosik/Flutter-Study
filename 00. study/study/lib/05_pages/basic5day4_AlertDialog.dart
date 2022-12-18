@@ -7,6 +7,20 @@ class basic5day4_AlertDialog extends StatefulWidget {
   State<basic5day4_AlertDialog> createState() => _basic5day4_AlertDialogState();
 }
 
+/*
+
+아니 도대체 나는 뭘  만들고 싶어 한거임 ㅋㅋㅋ
+
+1 - 버튼을 클릭했을때 1개의 함수로 실행하고 싶은데
+2 - 그 1개의 함수에서 현재 전구가 켜져있는지 꺼져있는지 확인이 되야됨 
+3 - 켜져있으면 켜기 버튼을 클릭했을시 켜져있다는 알람을 만듦 
+4 - 끄기를 누르면 끄시겠냐고 예/아니오 알람이 나오게 만들어야 됨
+5 - 반대 상태껏도 만들어야 댐
+
+이걸 하려고 했는데 나중에 보려니 머리만 아프네 ㅋ
+
+
+*/
 class _basic5day4_AlertDialogState extends State<basic5day4_AlertDialog> {
   late String callImage;
   late String callImageOn;
@@ -17,7 +31,7 @@ class _basic5day4_AlertDialogState extends State<basic5day4_AlertDialog> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    callImage = '';
+    callImage = 'images/lamp_on.png';
     callImageOn = 'images/lamp_on.png';
     callImageOff = 'images/lamp_off.png';
     lampState = true;
@@ -34,6 +48,18 @@ class _basic5day4_AlertDialogState extends State<basic5day4_AlertDialog> {
       body: Center(
         child: Column(
           children: [
+            const SizedBox(
+              height: 30,
+            ),
+            const Text(
+              '함수 미완성',
+              style: TextStyle(
+                fontSize: 40,
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
             Image.asset(
               callImage,
               width: 300,
@@ -64,7 +90,7 @@ class _basic5day4_AlertDialogState extends State<basic5day4_AlertDialog> {
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
@@ -98,11 +124,11 @@ class _basic5day4_AlertDialogState extends State<basic5day4_AlertDialog> {
 
       }
     } //OUT side IF
+
     //  makeAlertButton();
     buttonBoolChk(
       BuildContext context,
       boolState,
-      /*boolState*/
     ) {
       //buttonBoolChk
 

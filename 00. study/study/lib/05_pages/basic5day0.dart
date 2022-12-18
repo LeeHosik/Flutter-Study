@@ -91,6 +91,18 @@ class Basic5day0 extends StatelessWidget {
                 },
                 child: const Text('6_List View'),
               ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(230, 40),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/basic5day7_Final',
+                  );
+                },
+                child: const Text('7_Final todoList View'),
+              ),
             ],
           ),
         ),
