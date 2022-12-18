@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:study/04_pages/bmiModel/message.dart';
 
 import 'basic4day3_bmi_2.dart';
 
@@ -49,22 +51,11 @@ class _calcBMIState extends State<calcBMI> {
                 const Text(
                   '성별을 선택해 주세요',
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    // CircleAvatar(
-                    //   backgroundImage: AssetImage('images/female.png'),
-                    //   radius: 40,
-                    // ),
-                    // SizedBox(
-                    //   width: 40,
-                    // ),
-                    // CircleAvatar(
-                    //   backgroundImage: AssetImage('images/male.png'),
-                    //   radius: 40,
-                    // ),
                     FloatingActionButton(
                       heroTag: "btn1",
                       onPressed: () => gender(1),
@@ -77,6 +68,7 @@ class _calcBMIState extends State<calcBMI> {
                     ),
                     FloatingActionButton(
                       heroTag: "btn2",
+                      backgroundColor: Colors.red,
                       onPressed: () => gender(2),
                       child: const Icon(
                         Icons.female,
@@ -107,15 +99,39 @@ class _calcBMIState extends State<calcBMI> {
                 const SizedBox(
                   height: 10,
                 ),
-                SizedBox(
-                  width: 300,
-                  child: Slider(
-                    value: _currentSliderCmValue,
-                    max: 230,
-                    divisions: 230,
-                    label: _currentSliderCmValue.round().toString(),
-                    onChanged: (double value) => _slideCm(value),
-                  ),
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        if (int.parse(cm.text) > 0) {
+                          cm.text = (int.parse(cm.text) - 1).toString();
+                        }
+                      },
+                      iconSize: 30,
+                      icon: const Icon(
+                        Icons.remove_circle_sharp,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 250,
+                      // child: CupertinoSlider(
+                      child: Slider(
+                        value: _currentSliderCmValue,
+                        max: 230,
+                        divisions: 230,
+                        label: _currentSliderCmValue.round().toString(),
+                        onChanged: (double value) => _slideCm(value),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () =>
+                          cm.text = (int.parse(cm.text) + 1).toString(),
+                      iconSize: 30,
+                      icon: const Icon(
+                        Icons.add_circle_sharp,
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   width: 150,
@@ -129,29 +145,45 @@ class _calcBMIState extends State<calcBMI> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 300,
-                  child: Slider(
-                    value: _currentSliderKgValue,
-                    max: 150,
-                    divisions: 150,
-                    label: _currentSliderKgValue.round().toString(),
-                    onChanged: (double value) => _slideKg(value),
-                  ),
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        if (int.parse(kg.text) > 0) {
+                          kg.text = (int.parse(kg.text) - 1).toString();
+                        }
+                      },
+                      iconSize: 30,
+                      icon: const Icon(
+                        Icons.remove_circle_sharp,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 250,
+                      child: Slider(
+                        value: _currentSliderKgValue,
+                        max: 150,
+                        divisions: 150,
+                        label: _currentSliderKgValue.round().toString(),
+                        onChanged: (double value) => _slideKg(value),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        kg.text = (int.parse(kg.text) + 1).toString();
+                      },
+                      iconSize: 30,
+                      icon: const Icon(
+                        Icons.add_circle_sharp,
+                      ),
+                    ),
+                  ],
                 ),
                 Column(
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        result =
-                            _FnCalcBMI(int.parse(cm.text), int.parse(kg.text));
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => resultBMI(result),
-                          ),
-                        );
+                        Click();
                       },
                       child: Row(
                         children: const [
@@ -206,6 +238,36 @@ class _calcBMIState extends State<calcBMI> {
     return calcResult;
   }
 
+  Click() {
+    if (int.parse(cm.text.trim()) <= 0 || int.parse(kg.text.trim()) <= 0) {
+      _errorSnackBar(context);
+    } else {
+      Message.messageCm = int.parse(cm.text);
+      Message.messageKg = int.parse(kg.text);
+      result = _FnCalcBMI(
+        int.parse(cm.text),
+        int.parse(kg.text),
+      );
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => resultBMI(result),
+        ),
+      );
+    }
+  } // Click
+
+  _errorSnackBar(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text(
+          'Check Input your Kg & Cm',
+        ),
+        duration: Duration(seconds: 2),
+        backgroundColor: Colors.red,
+      ),
+    );
+  } // errorSnackBar 뚱
 // -------------- Function END --------------
 
 } // END

@@ -5,8 +5,11 @@ import 'package:study/01_pages/basic1day1.dart';
 import 'package:study/02_pages/basic2day0.dart';
 import 'package:study/02_pages/basic2day1.dart';
 import 'package:study/05_pages/basic5day0.dart';
+import 'package:study/05_pages/view/final_insert.dart';
+import 'package:study/05_pages/view/final_list.dart';
 import 'package:study/home.dart';
 import 'package:study/nullPage.dart';
+import 'package:study/test/test.dart';
 
 import '03_pages/basic3day0.dart';
 import '03_pages/basic3day1.dart';
@@ -27,6 +30,8 @@ import '05_pages/basic5day3_imageSwitch3.dart';
 import '05_pages/basic5day4_AlertDialog.dart';
 import '05_pages/basic5day5_tabBar.dart';
 import '05_pages/basic5day6_listView.dart';
+import '05_pages/basic5day7_Final.dart';
+import '06_pages/view/basic6day0.dart';
 
 void main() {
   runApp(const MyApp());
@@ -87,11 +92,17 @@ class MyApp extends StatelessWidget {
         '/basic5day5_tabBar': (context) => const basic5day5_tabBar(),
         '/basic5day6_listView': (context) => const basic5day6_listView(),
 
+        // todoList View
+        '/basic5day7_Final': (context) => const basic5day7_Final(),
+        '/final_insert': (context) => const final_insert(),
+        '/final_list': (context) => final_list(),
         // 6day
-        '/Basic6day0': (context) => const nullPage(),
+        '/Basic6day0': (context) => const Basic6day0(),
         // 7day
         '/Basic7day0': (context) => const nullPage(),
-        // 8day
+
+        // Test
+        '/testToggleButtons': (context) => const testToggleButtons(),
       },
     );
   }

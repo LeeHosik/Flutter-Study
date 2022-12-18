@@ -72,11 +72,11 @@ class _HomeState extends State<Home> {
                 Icons.mail,
                 color: Colors.blue,
               ),
-              title: const Text('보낸 편지함'),
+              title: const Text('Test'),
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  '/nullPage',
+                  '/testToggleButtons',
                 );
               },
               //trailing: const Icon(Icons.add),
@@ -188,6 +188,23 @@ class _HomeState extends State<Home> {
                   ),
                   child: const Text(
                     '05 Day',
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/Basic6day0',
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(200, 30),
+                  ),
+                  child: const Text(
+                    '06 Day',
                   ),
                 ),
               ),

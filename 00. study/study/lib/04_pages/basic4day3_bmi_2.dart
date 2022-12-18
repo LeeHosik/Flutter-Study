@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study/04_pages/bmiModel/message.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class resultBMI extends StatefulWidget {
@@ -14,6 +15,7 @@ class resultBMI extends StatefulWidget {
 class _calcBMIState extends State<resultBMI> {
   late String Resulttext;
   late String imgName;
+  late Color bgColors;
   @override
   void initState() {
     // TODO: implement initState
@@ -22,22 +24,29 @@ class _calcBMIState extends State<resultBMI> {
     Resulttext = "";
     imgName = "";
     double srt = widget.result;
-
-    if (srt > 35) {
+    print(srt);
+    if (srt >= 35) {
       Resulttext = '초고도 비만';
       imgName = 'extremelyobese.png';
-    } else if (srt > 30 && srt < 34.9) {
+      bgColors = Colors.red;
+    } else if (srt >= 30 && srt < 35) {
       Resulttext = '고도 비만';
       imgName = 'obese.png';
-    } else if (srt > 25 && srt < 23) {
+      bgColors = Colors.orange;
+    } else if (srt > 25 && srt < 30) {
       Resulttext = '과체중';
       imgName = 'overweight.png';
-    } else if (srt > 24.9 && srt < 18.5) {
+      bgColors = Colors.yellow;
+    } else if (srt >= 18.5 && srt < 25) {
       Resulttext = '정상';
       imgName = 'nomal.png';
-    } else if (srt > 18.5) {
+      bgColors = Colors.green;
+    } else if (srt < 18.5) {
       Resulttext = '저체중';
       imgName = 'underweight.png';
+      bgColors = Colors.blue;
+    } else {
+      bgColors = Colors.cyan;
     }
   }
 
@@ -45,7 +54,7 @@ class _calcBMIState extends State<resultBMI> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 92, 238, 97),
+        backgroundColor: bgColors,
         centerTitle: true,
         title: const Text(
           '당신의 비만도는 ?',
@@ -55,13 +64,21 @@ class _calcBMIState extends State<resultBMI> {
       body: SingleChildScrollView(
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(
+                height: 40,
+              ),
               Image.asset(
                 'images/$imgName',
-                width: 190,
+                //width: 190,
+                height: 450,
               ),
               const SizedBox(
                 height: 20,
+              ),
+              Text(
+                '입력하신 키는 ${Message.messageCm}cm 이고 몸무게는 ${Message.messageKg}kg 입니다.',
               ),
               Text(
                 '귀하의 BMI는 ${widget.result.toStringAsFixed(2)} 이고 ',
@@ -77,7 +94,7 @@ class _calcBMIState extends State<resultBMI> {
                     ranges: [
                       LinearGaugeRange(
                         color: Colors.purple,
-                        startValue: 0,
+                        startValue: 10,
                         endValue: widget.result,
                       ),
                     ],
@@ -109,6 +126,7 @@ class _calcBMIState extends State<resultBMI> {
                         color: Colors.cyan,
                       ),
                     ],
+
                     //useRangeColorForAxis: true,
                   ),
                 ],
