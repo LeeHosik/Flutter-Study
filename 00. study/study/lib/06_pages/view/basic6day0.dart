@@ -26,10 +26,22 @@ class Basic6day0 extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
-                    '/nullPage',
+                    '/basic6day1',
                   );
                 },
-                child: const Text('1_ マダ'),
+                child: const Text('1_ViewList'),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(230, 40),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/basic6day2_TabBar',
+                  );
+                },
+                child: const Text('Img Listview FirstPage'),
               ),
             ],
           ),

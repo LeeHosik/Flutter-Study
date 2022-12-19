@@ -7,6 +7,10 @@ import 'package:study/02_pages/basic2day1.dart';
 import 'package:study/05_pages/basic5day0.dart';
 import 'package:study/05_pages/view/final_insert.dart';
 import 'package:study/05_pages/view/final_list.dart';
+import 'package:study/06_pages/view/basic6day1.dart';
+import 'package:study/06_pages/view/basic6day2_TabBar.dart';
+import 'package:study/06_pages/view/basic6day2_img_listview_firstPage.dart';
+import 'package:study/06_pages/view/basic6day2_img_listview_secondPage.dart';
 import 'package:study/home.dart';
 import 'package:study/nullPage.dart';
 import 'package:study/test/test.dart';
@@ -98,6 +102,13 @@ class MyApp extends StatelessWidget {
         '/final_list': (context) => final_list(),
         // 6day
         '/Basic6day0': (context) => const Basic6day0(),
+        '/basic6day1': (context) => const basic6day1(),
+        '/basic6day2_TabBar': (context) => const basic6day2_TabBar(),
+
+        '/basic6day2_img_listview_firstPage': (context) =>
+            const basic6day2_img_listview_firstPage(),
+        '/basic6day2_img_listview_secondPage': (context) =>
+            const basic6day2_img_listview_secondPage(),
         // 7day
         '/Basic7day0': (context) => const nullPage(),
 
