@@ -18,12 +18,14 @@ class _Detail_listState extends State<Detail_list> {
           'data',
         ),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Image.asset(Message.image123),
-            Text(Message.workList),
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              Image.asset(Message.image123),
+              Text(Message.workList),
+            ],
+          ),
         ),
       ),
     );

@@ -1,9 +1,6 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-
-import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:convert';
+import 'package:study/05_pages/model/message.dart';
+import 'package:study/05_pages/model/staticInsertdata.dart';
 
 class final_insert extends StatefulWidget {
   const final_insert({super.key});
@@ -16,7 +13,7 @@ class _final_insertState extends State<final_insert> {
   late TextEditingController titleName;
   late String imgPath;
 
-  get listtodoList => null;
+  // get listtodoList => null;
 
   @override
   void initState() {
@@ -40,6 +37,7 @@ class _final_insertState extends State<final_insert> {
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 40),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
                     'Title',
@@ -120,7 +118,10 @@ class _final_insertState extends State<final_insert> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        todoListOk(context);
+                        gangsanimdapan();
+                        Navigator.pop(context);
+                        /////////////////////////////
+                        // todoListOk(context); <<내꺼
                       },
                       child: Row(
                         children: const [
@@ -168,9 +169,31 @@ class _final_insertState extends State<final_insert> {
     if (titleName.text.trim().isEmpty) {
       _errorSnackBar(context);
     } else {
+      TodoListStaticInsert.todoListTitle = titleName.text.trim();
       Navigator.of(context).pop();
+
+      // addListtodoList();
+      Navigator.pushNamed(
+        context,
+        '/final_list',
+        // arguments: addListtodoList(),
+      );
     }
   } //todoListOk END
+
+//강사님 답안 OK버튼 클릭시
+  gangsanimdapan() {
+    if (titleName.text.trim().isEmpty) {
+      addList();
+    }
+  }
+
+  addList() {
+    Message.todolistchk = true;
+    Message.workList = titleName.text.trim();
+    Message.image123 = 'images/pencil.png';
+  }
+  ///////////////////// 강사님 답안 END
 
   _errorSnackBar(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -195,4 +218,15 @@ class _final_insertState extends State<final_insert> {
 
 //  var w34 = storage.get('name');
 
+  // addListtodoList() {
+  //   setState(() {
+  //     listtodoList.add(
+  //       TodoList(
+  //         imagePath: 'images/kitasan.jpeg',
+  //         workList: titleName.text.trim(),
+  //       ),
+  //     );
+  //   });
+  //   print(titleName.text);
+  // }
 } // END

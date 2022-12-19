@@ -34,7 +34,7 @@ class _HomeState extends State<Basic4day5_TimerText> {
   void dispose() {
     /// tabbar 할때 이 종료 안해주면 쓰래기 엄청 쌓임
     //_roopChangeText()?.dispose(); // <<<<<<<<
-    _timer?.cancel();
+    _timer.cancel();
     super.dispose();
   }
 
