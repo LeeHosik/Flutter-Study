@@ -1,54 +1,33 @@
 import 'package:flutter/material.dart';
 
 import 'package:study/06_pages/model/list_view_model.dart';
+import 'package:study/06_pages/model/umamusume_list.dart';
 
-class basic6day2_img_listview_secondPage extends StatefulWidget {
-  const basic6day2_img_listview_secondPage({super.key});
+class basic6day2_img_listview_secondPageList extends StatefulWidget {
+  const basic6day2_img_listview_secondPageList({super.key});
 
   @override
-  State<basic6day2_img_listview_secondPage> createState() =>
+  State<basic6day2_img_listview_secondPageList> createState() =>
       _basic6day2_img_listview_secondPageState();
 }
 
 class _basic6day2_img_listview_secondPageState
-    extends State<basic6day2_img_listview_secondPage> {
-  late List<list_view_model> umamusume;
-
+    extends State<basic6day2_img_listview_secondPageList> {
+  late List<umamusume_model> umamusume;
+  @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     umamusume = [];
-    umamusume.add(list_view_model(
-        imgPath: 'images/Daiwa Scarlet.png',
-        imgName: 'Daiwa Scarlet',
-        Category: '逃げ, 先行'));
-    umamusume.add(list_view_model(
-        imgPath: 'images/Kitasan Black.png',
-        imgName: 'Kitasan Black',
-        Category: '逃げ'));
-    umamusume.add(list_view_model(
-        imgPath: 'images/Mayano Top Gun.png',
-        imgName: 'Mayano Top Gun',
-        Category: '逃げ, 先行'));
-    umamusume.add(list_view_model(
-        imgPath: 'images/Mejiro Ardan.png',
-        imgName: 'Mejiro Ardan',
-        Category: '先行'));
-    umamusume.add(list_view_model(
-        imgPath: 'images/Mihono Bourbon.png',
-        imgName: 'Mihono Bourbon',
-        Category: '逃げ'));
-    umamusume.add(list_view_model(
-        imgPath: 'images/Yamanin Zephyr.png',
-        imgName: 'Yamanin Zephyr',
-        Category: '逃げ'));
-  } // initSate END
+    umamusume = musumeList.umamusume;
+    //rebuildData();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-        itemCount: 5,
+        // itemCount: umamusume.length,
+        itemCount: umamusume.length,
         itemBuilder: (context, index) {
           return GestureDetector(
             child: Card(
@@ -56,7 +35,7 @@ class _basic6day2_img_listview_secondPageState
                 children: [
                   Image.asset(
                     umamusume[index].imgPath,
-                    height: 140,
+                    height: 90,
                   ),
                   const SizedBox(
                     width: 10,
@@ -68,7 +47,13 @@ class _basic6day2_img_listview_secondPageState
                     width: 10,
                   ),
                   Text(
-                    umamusume[index].Category,
+                    umamusume[index].category,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    umamusume[index].sakusen,
                   ),
                 ],
               ),
@@ -81,22 +66,22 @@ class _basic6day2_img_listview_secondPageState
   // ---------------- Function ----------------
   // 2022-12-19 Hosik
 
-  rebuildData() {
-    if (staticMessage.boolchk == true) {
-      setState(() {
-        umamusume.add(
-          list_view_model(
-            imgName: staticMessage.name,
-            imgPath: staticMessage.imgPath,
-            Category: staticMessage.category,
-            // staticMessage.canFly
-            // staticMessage.boolchk
-          ),
-        );
-      });
-      staticMessage.boolchk = false;
-    }
-  } // rebuildData END
+  // rebuildData() {
+  //   if (staticMessage.boolchk == true) {
+  //     setState(() {
+  //       print('rebuildData 안에서  ${umamusume.length}');
+  //       umamusume.add(
+  //         umamusume_model(
+  //           imgName: staticMessage.name,
+  //           imgPath: "images ${staticMessage.imgPath}.png",
+  //           category: staticMessage.category,
+  //           sakusen: staticMessage.sakusen,
+  //         ),
+  //       );
+  //     });
+  //     staticMessage.boolchk = false;
+  //   }
+  // }
 
 // ---------------- Function END ----------------
 }// END

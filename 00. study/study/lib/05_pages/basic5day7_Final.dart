@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study/05_pages/view/final_insert.dart';
 import 'package:study/05_pages/view/final_list.dart';
 
 class basic5day7_Final extends StatefulWidget {
@@ -31,7 +32,7 @@ class _basic5day7_FinalState extends State<basic5day7_Final>
         controller: tabController,
         children: [
           final_list(),
-          //(),
+          //final_insert(),
         ],
       ),
       bottomNavigationBar: Container(

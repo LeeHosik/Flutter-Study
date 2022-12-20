@@ -31,38 +31,42 @@ class _basic6day2_TabBarState extends State<basic6day2_TabBar>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Flower List VIew',
+      appBar: PreferredSize(
+        //wrap with PreferredSize
+        preferredSize: Size.fromHeight(35), //height of appbar
+        child: AppBar(
+          title: const Text(
+            'Flower List VIew',
+          ),
         ),
       ),
       body: TabBarView(
         controller: tabController,
         children: const [
-          basic6day2_img_listview_secondPage(),
-          basic6day2_img_listview_firstPage(),
+          basic6day2_img_listview_secondPageList(),
+          basic6day2_img_listview_firstPageInsert(),
         ],
       ),
       bottomNavigationBar: Container(
-        color: Colors.indigo,
-        height: 55,
+        color: Colors.white,
+        height: 40,
         child: TabBar(
-          labelColor: Colors.purple,
-          indicatorColor: Colors.pink,
+          labelColor: Colors.amber,
+          indicatorColor: Colors.blue,
           unselectedLabelColor: Colors.amber,
           controller: tabController,
           tabs: const [
             Tab(
               icon: Icon(
-                Icons.looks_one,
+                Icons.list,
                 //  color: Colors.amber,
               ),
-              text: 'one',
+              //  text: 'list',
             ),
             Tab(
               icon: Icon(
-                Icons.home,
-                //color: Colors.blueAccent,
+                Icons.add,
+                color: Colors.amber,
               ),
             ),
           ],
