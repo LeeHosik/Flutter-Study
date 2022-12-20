@@ -5,65 +5,36 @@ import 'package:flutter/material.dart';
 import 'package:horizontal_card_pager/horizontal_card_pager.dart';
 import 'package:horizontal_card_pager/card_item.dart';
 import 'package:study/06_pages/model/list_view_model.dart';
+import 'package:study/06_pages/model/umamusume_list.dart';
 
-class basic6day2_img_listview_firstPage extends StatefulWidget {
-  const basic6day2_img_listview_firstPage({super.key});
+class basic6day2_img_listview_firstPageInsert extends StatefulWidget {
+  const basic6day2_img_listview_firstPageInsert({super.key});
 
   @override
-  State<basic6day2_img_listview_firstPage> createState() =>
+  State<basic6day2_img_listview_firstPageInsert> createState() =>
       _basic6day2_img_listview_firstPageState();
 }
 
 class _basic6day2_img_listview_firstPageState
-    extends State<basic6day2_img_listview_firstPage> {
+    extends State<basic6day2_img_listview_firstPageInsert> {
   late String Backimg;
   late int filsal;
   late TextEditingController anything;
   late List<bool> sakusen;
   late List<String> _lst;
-
-  List<CardItem> imgitems = [
-    ImageCarditem(
-      image: Image.asset(
-        'images/flower_01.png',
-      ),
-    ),
-    ImageCarditem(
-      image: Image.asset(
-        'images/flower_02.png',
-      ),
-    ),
-    ImageCarditem(
-      image: Image.asset(
-        'images/flower_03.png',
-      ),
-    ),
-    ImageCarditem(
-      image: Image.asset(
-        'images/flower_04.png',
-      ),
-    ),
-    ImageCarditem(
-      image: Image.asset(
-        'images/flower_05.png',
-      ),
-    ),
-    ImageCarditem(
-      image: Image.asset(
-        'images/flower_06.png',
-      ),
-    ),
-  ];
+  late List<CardItem> imgitems;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     anything = TextEditingController();
-    Backimg = 'flower_01';
+    //Backimg = 'flower_01';
+    Backimg = 'Mejiro McQueen';
     filsal = 0;
     sakusen = [false, false, false, false];
     _lst = ['도주 ', '선행 ', '선입 ', '추입 '];
+    imgitems = cardUmamusume.imgitems;
   }
 
   @override
@@ -77,7 +48,7 @@ class _basic6day2_img_listview_firstPageState
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(40, 20, 40, 19),
+                    padding: const EdgeInsets.fromLTRB(40, 15, 40, 19),
                     child: TextField(
                       controller: anything,
                       keyboardType: TextInputType.text,
@@ -97,7 +68,7 @@ class _basic6day2_img_listview_firstPageState
                       ),
                       CustomSlidingSegmentedControl<int>(
                         initialValue: 2,
-                        children: {
+                        children: const {
                           1: Text('가속기'),
                           2: Text('속도기'),
                           3: Text('회복기'),
@@ -114,14 +85,14 @@ class _basic6day2_img_listview_firstPageState
                               color: Colors.black.withOpacity(.3),
                               blurRadius: 4.0,
                               spreadRadius: 1.0,
-                              offset: Offset(
+                              offset: const Offset(
                                 0.0,
                                 2.0,
                               ),
                             ),
                           ],
                         ),
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         curve: Curves.easeInToLinear,
                         onValueChanged: (v) {
                           print(v);
@@ -174,7 +145,6 @@ class _basic6day2_img_listview_firstPageState
                           onChanged: (value) {
                             setState(() {
                               sakusen[3] = value!;
-                              print(sakusen);
                             });
                           }),
                       const Text(
@@ -187,15 +157,15 @@ class _basic6day2_img_listview_firstPageState
               Stack(
                 children: [
                   Positioned(
-                    top: 110,
+                    top: 90,
                     left: 18,
                     child: CircleAvatar(
-                      backgroundImage: AssetImage('images/${Backimg}.png'),
+                      backgroundImage: AssetImage('images/$Backimg.png'),
                       radius: 180,
                     ),
                   ),
                   SizedBox(
-                    height: 500,
+                    height: 480,
                     child: HorizontalCardPager(
                       onPageChanged: (page) {
                         setState(() {
@@ -243,17 +213,17 @@ class _basic6day2_img_listview_firstPageState
 // 이미지 고를때 static name 변경
   changeImg(value) {
     if (value >= 5) {
-      Backimg = "flower_06";
+      Backimg = "Maruzensky";
     } else if (value < 5 && value >= 4) {
-      Backimg = "flower_05";
+      Backimg = "Silence Suzuka";
     } else if (value < 4 && value >= 3) {
-      Backimg = "flower_04";
+      Backimg = "Grass Wonder";
     } else if (value < 3 && value >= 2) {
-      Backimg = "flower_03";
+      Backimg = "Mejiro McQueen";
     } else if (value < 2 && value >= 1) {
-      Backimg = "flower_02";
+      Backimg = "Mejiro Dober";
     } else if (value < 1 && value >= 0) {
-      Backimg = "flower_01";
+      Backimg = "Mejiro Bright";
     }
   } // changeImg END
 
@@ -262,7 +232,7 @@ class _basic6day2_img_listview_firstPageState
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text(
-          'Check Name TextField',
+          'Check One more time',
         ),
         duration: Duration(seconds: 2),
         backgroundColor: Colors.red,
@@ -272,16 +242,20 @@ class _basic6day2_img_listview_firstPageState
 
 // 확인 눌렀을떄 함수들
   _showDialog(BuildContext context) {
-    if (anything.text.trim().isEmpty) {
+    if (anything.text.trim().isEmpty ||
+        sakusen[0] == false &&
+            sakusen[1] == false &&
+            sakusen[2] == false &&
+            sakusen[3] == false) {
       _errorSnackBar(context);
     } else {
       staticMessage.imgPath = Backimg;
       staticMessage.name = anything.text.trim();
-      staticMessage.sakusen = sakusen;
-      String nige = sakusen[0] == true ? '도주' : '';
-      String sunhang = sakusen[1] == true ? '선행' : '';
-      String sunip = sakusen[2] == true ? '선입' : '';
-      String chuip = sakusen[3] == true ? '추입' : '';
+
+      // String nige = sakusen[0] == true ? '도주' : '';
+      // String sunhang = sakusen[1] == true ? '선행' : '';
+      // String sunip = sakusen[2] == true ? '선입' : '';
+      // String chuip = sakusen[3] == true ? '추입' : '';
       String lst = "";
       for (int i = 0; i < sakusen.length; i++) {
         if (sakusen[i] == true) {
@@ -289,12 +263,27 @@ class _basic6day2_img_listview_firstPageState
         }
       }
 
-      staticMessage.category = filsal == 1
-          ? '가속기'
-          : filsal == 2
-              ? '속도기'
-              : '회복기';
-
+      staticMessage.sakusen = lst;
+      switch (filsal) {
+        case 1:
+          staticMessage.category = '가속기';
+          break;
+        case 2:
+          staticMessage.category = '속도기';
+          break;
+        case 3:
+          staticMessage.category = '회복기';
+          break;
+        default:
+          staticMessage.category = '속도기';
+      }
+      // staticMessage.category = filsal % 3 == 1
+      //     ? '회복기'
+      //     : filsal % 3 == 2
+      //         ? '속도기'
+      //         : '가속기';
+      print(staticMessage.sakusen);
+      print(staticMessage.category);
       showDialog(
         context: context,
         //barrierDismissible: false, // user must tap the button!
@@ -305,13 +294,30 @@ class _basic6day2_img_listview_firstPageState
               anything.text.trim(),
             ),
             content: Text(
-              '${anything.text.trim()} 의 고유기는 ${staticMessage.category}이고, '
+              '${anything.text.trim()} 의 고유기는 ${staticMessage.category} 이고,\n'
               '적성 각질은 $lst 입니다 ',
             ),
             actions: [
               TextButton(
-                onPressed: () => Navigator.pushNamed(
-                    context, '/basic6day2_img_listview_secondPage'),
+                onPressed: () {
+                  staticMessage.boolchk = true;
+                  Navigator.of(ctx).pop();
+                  Navigator.of(ctx).pop();
+                  // setState(() {
+                  // umamusume_model.(
+                  musumeList.umamusume.add(
+                    umamusume_model(
+                        imgPath: 'images/${staticMessage.imgPath}.png',
+                        imgName: staticMessage.name,
+                        sakusen: staticMessage.sakusen,
+                        category: staticMessage.category),
+                  );
+
+                  Navigator.pushNamed(context, '/basic6day2_TabBar');
+                  // });
+                  // Navigator.pushNamed(
+                  //     context, '/basic6day2_img_listview_secondPage');
+                },
                 child: const Text(' OK '),
               ),
               ElevatedButton(
@@ -324,6 +330,9 @@ class _basic6day2_img_listview_firstPageState
         },
       );
     }
+    print(staticMessage.imgPath = Backimg);
+    print(staticMessage.name = anything.text.trim());
+    print('last bool check ${staticMessage.boolchk}');
   } // _showDialog END
 
 // ------------------ Function END ------------------

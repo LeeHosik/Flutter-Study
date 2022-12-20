@@ -32,11 +32,11 @@ class _HomeState extends State<Home> {
             onPressed: () {
               Navigator.pushNamed(
                 context,
-                '/nullPage',
+                '/chkList',
               );
             },
             icon: const Icon(
-              Icons.add,
+              Icons.check,
             ),
           ),
         ],
@@ -76,7 +76,7 @@ class _HomeState extends State<Home> {
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  '/testToggleButtons',
+                  '/TEST_LIst',
                 );
               },
               //trailing: const Icon(Icons.add),
@@ -86,11 +86,11 @@ class _HomeState extends State<Home> {
                 Icons.mail_outline,
                 color: Colors.red,
               ),
-              title: const Text('받은 편지함'),
+              title: const Text('Check List'),
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  '/nullPage',
+                  '/chkList',
                 );
               },
             ),
@@ -205,6 +205,23 @@ class _HomeState extends State<Home> {
                   ),
                   child: const Text(
                     '06 Day',
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/Basic7day0',
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(200, 30),
+                  ),
+                  child: const Text(
+                    '07 Day',
                   ),
                 ),
               ),

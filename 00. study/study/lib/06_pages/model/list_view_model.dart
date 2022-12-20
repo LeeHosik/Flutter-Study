@@ -1,23 +1,20 @@
-import 'dart:ffi';
-
-import 'package:flutter/material.dart';
-import 'package:horizontal_card_pager/card_item.dart';
-
-class list_view_model {
+class umamusume_model {
   String imgName;
   String imgPath;
-  String Category;
+  String category;
+  String sakusen;
 
-  list_view_model(
-      {required this.imgName, required this.imgPath, required this.Category});
+  umamusume_model(
+      {required this.imgName,
+      required this.imgPath,
+      required this.category,
+      required this.sakusen});
 }
 
 class staticMessage {
   static String name = '';
   static String imgPath = '';
   static String category = '';
-  static List<bool> sakusen = [];
-  static bool boolchk = false;
+  static String sakusen = '';
+  static bool boolchk = true;
 }
-
-// class img {

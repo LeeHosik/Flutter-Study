@@ -11,9 +11,19 @@ import 'package:study/06_pages/view/basic6day1.dart';
 import 'package:study/06_pages/view/basic6day2_TabBar.dart';
 import 'package:study/06_pages/view/basic6day2_img_listview_firstPage.dart';
 import 'package:study/06_pages/view/basic6day2_img_listview_secondPage.dart';
+
+import 'package:study/07_pages/basic7day0.dart';
+import 'package:study/07_pages/basic7day1_login.dart';
+import 'package:study/07_pages/basic7day2_toast.dart';
+import 'package:study/07_pages/basic7day3_lampModify.dart';
+import 'package:study/07_pages/basic7day4_lamp_red_on_off.dart';
+import 'package:study/07_pages/basic7day5_PickerView.dart';
+import 'package:study/07_pages/toastClicke.dart';
+import 'package:study/checkList/chklist.dart';
 import 'package:study/home.dart';
 import 'package:study/nullPage.dart';
 import 'package:study/test/test.dart';
+import 'package:study/test/testList.dart';
 
 import '03_pages/basic3day0.dart';
 import '03_pages/basic3day1.dart';
@@ -105,15 +115,28 @@ class MyApp extends StatelessWidget {
         '/basic6day1': (context) => const basic6day1(),
         '/basic6day2_TabBar': (context) => const basic6day2_TabBar(),
 
-        '/basic6day2_img_listview_firstPage': (context) =>
-            const basic6day2_img_listview_firstPage(),
-        '/basic6day2_img_listview_secondPage': (context) =>
-            const basic6day2_img_listview_secondPage(),
+        '/basic6day2_img_listview_firstPageInsert': (context) =>
+            const basic6day2_img_listview_firstPageInsert(),
+        '/basic6day2_img_listview_secondPageList': (context) =>
+            const basic6day2_img_listview_secondPageList(),
         // 7day
-        '/Basic7day0': (context) => const nullPage(),
+        '/Basic7day0': (context) => const Basic7day0(),
+        '/basic7day1_login_nav_tab': (context) =>
+            const basic7day1_login_nav_tab(),
+        '/basic7day2_toast': (context) => const basic7day2_toast(),
+        '/basic7day3_lampModify': (context) => const basic7day3_lampModify(),
+        '/basic7day4_lamp_red_on_off': (context) =>
+            const basic7day4_lamp_red_on_off(),
+        '/basic7day5_PickerView': (context) => const basic7day5_PickerView(),
 
         // Test
         '/testToggleButtons': (context) => const testToggleButtons(),
+        '/TEST_LIst': (context) => const TEST_LIst(),
+        '/toastTest': (context) => const toastTest(),
+        // '/Login': (context) => const Login(),
+
+        // Need Check List
+        '/chkList': (context) => const chkList(),
       },
     );
   }
