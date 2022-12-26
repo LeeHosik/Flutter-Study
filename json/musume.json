@@ -3,7 +3,17 @@
 
 "data":[
 
-{"imgpath" : }
+{
+"imgpath" : "https://github.com/LeeHosik/Flutter-Study/tree/main/00%20backup/study/images/Aston Machan.png"
+"name" : "アストンマーチャン"
+"sakusen": "逃げ, 先行" 
+},
+{
+imgPath: 'images/Kitasan Black.png',
+        imgName: 'Kitasan Black',
+        sakusen: '逃げ, 先行',
+        category: '속가복합기')
+}
 
 
 

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "431709216545",
+    "project_id": "ageless-welder-367301",
+    "storage_bucket": "ageless-welder-367301.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431709216545:android:f784327c48f45ad32a6860",
+        "android_client_info": {
+          "package_name": "com.example.firebsse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431709216545-75n8umt04j30jma99dubsur7hdbvnq26.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbyiXwYz_qr0bB4lFnpDcRBmfwrssN9U0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431709216545-75n8umt04j30jma99dubsur7hdbvnq26.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
