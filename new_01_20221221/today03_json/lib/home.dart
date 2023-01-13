@@ -42,7 +42,7 @@ class _homeBodyState extends State<homeBody> {
       body: Center(
         child: data.isEmpty
             // ? CircularProgressIndicator()
-            // ? CupertinoActivityIndicator()
+            ? CupertinoActivityIndicator()
             ? Image.asset('images/sense.jpeg')
             : ListView.builder(
                 itemCount: data.length,
